@@ -1,11 +1,17 @@
-import Vue from './lib/vue.js';
-import a from './components/a.js';
-
-var router = [
-  {path: '/a', active: true, commponent: a}
-];
+import Vue from './vue/index.js';
+import template from './components/test.html';
 
 new Vue({
   el: '#app',
-  router
-})
+  template: template,
+  data: {
+    talk: '精忠报国',
+    name: '李鑫',
+    list: [
+      {
+        id: 1, text: '第一个',
+        id: 2, text: '第二个'
+      }
+    ]
+  }
+});

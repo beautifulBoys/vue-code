@@ -1,4 +1,7 @@
 import Router from '../router/index.js';
+import vue_bind from './data_bind.js';
+import vue_object from './do_object.js';
+import complite from './complite';
 
 function getActiveComponent (router) {
   let act;
@@ -13,6 +16,9 @@ function getActiveComponent (router) {
 
 function init (router) {
   let active = getActiveComponent(router);
+  active.data = vue_bind(active.data).data;
+  active = vue_object(active);
+
 
   if (active.beforeCreate) active.beforeCreate();
   if (active.created) active.created();
